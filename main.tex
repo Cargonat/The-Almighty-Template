@@ -1,4 +1,4 @@
-\documentclass[11pt]{book}
+\documentclass[11pt]{article}
 
 \newcommand{\bilderAnzeigen}{N} % J/N
 
@@ -11,18 +11,6 @@
 \usepackage[tmargin=2.8cm,lmargin=2.8cm,rmargin=2.8cm,bmargin=2.8cm]{geometry}
 \usepackage[colorlinks,citecolor=blue,linkcolor=blue]{hyperref}
 \usepackage{tocloft}\setlength{\cftsecnumwidth}{6.3ex}
-
-\newcommand\mychapter{\thechapter.}
-\newcommand\mychaptername{\chaptername}
-\pagestyle{fancy}
-\renewcommand{\chaptermark}[1]
-  {\markboth{\MakeUppercase{\mychaptername}\ \mychapter\ #1}{}}
-\renewcommand{\sectionmark}[1]
-  {\markright{\thesection.\ #1}}
-\fancyhead[LO]{\slshape\rightmark}
-\fancyhead[RE]{\slshape\leftmark}
-\fancyhead[LE,RO]{\thepage}
-\renewcommand{\headrulewidth}{0.5pt}
 
 \DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
 
@@ -165,7 +153,7 @@
 \renewcommand\S{\mathrm{S}}
 \newcommand\scr\mathscr
 \newcommand\sd{\;\vert\;}
-\DeclarePairedDelimiter\set\{\}
+\newcommand\set[1]{\left\{\,#1\,\right\}}
 \newcommand\sgn{\mathrm{sgn}}
 \DeclareMathOperator\spt{spt}
 \DeclareMathOperator\Spur{Spur}
@@ -303,8 +291,11 @@
 \NewEnumerate{{Fall} 1}
 \NewEnumerate{{Beh.} 1.}
 
-\numberwithin{equation}{chapter}
-\counterwithout{figure}{chapter}\renewcommand\figurename{Abb.\@}
+
+\newcommand\itemSub{\item[\glqq$\subset$\grqq]}
+\newcommand\itemSup{\item[\glqq$\supset$\grqq]}
+\newcommand\itemLeft{\item[\glqq$\Leftarrow$\grqq]}
+\newcommand\itemRight{\item[\glqq$\Rightarrow$\grqq]}
           
 \let\emph\bf
 
@@ -318,8 +309,8 @@
 \author{Tobias Dummschat}
 
 \begin{document}
-%\vspace*{-50mm}
-{\let\newpage\relax\maketitle}
+\maketitle
+\section*{}
 
 \it{\textcolor{gray}{\ul{Disclaimer:} This template might have a very minor case of quite serious hubris. It is always cheerful about helpful additions and totally ignorant to the fact that it could not be properly improved, if it already were almighty.}}
 
