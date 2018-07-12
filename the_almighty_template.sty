@@ -1,0 +1,322 @@
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{the_almighty_template}[2018/07/12 The Almighty Template]
+
+%Option für \tafel
+\newcommand{\bilderAnzeigen}{N} % J/N
+
+
+%Loading packages
+\usepackage[english,ngerman]{babel}
+\usepackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{a4,amsmath,amssymb,amsthm,chngcntr,color,csquotes,dsfont,enumerate,extarrows,fancyhdr,graphicx,ifthen,lmodern,marvosym,mathdots,mathrsfs,mathtools,mathrsfs,multicol,qtree,relsize,stackrel,upref,verbatim,wasysym,wrapfig,tikz,tkz-euclide,ulem,wrapfig,xcolor}
+\RequirePackage[inline]{asymptote}
+\RequirePackage[numbers]{natbib}
+\RequirePackage[tmargin=2.8cm,lmargin=2.8cm,rmargin=2.8cm,bmargin=2.8cm]{geometry}
+\RequirePackage[colorlinks,citecolor=blue,linkcolor=blue]{hyperref}
+\RequirePackage{tocloft}\setlength{\cftsecnumwidth}{6.3ex}
+
+\DeclareOption{de}{\selectlanguage{ngerman}}
+\DeclareOption{en}{\selectlanguage{english}}
+
+\ExecuteOptions{de}
+
+\ProcessOptions\relax
+
+
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+
+\newcommand\1{\mathds{1}}
+\newcommand\abs[1]{\left\vert #1 \right\vert}
+\newcommand\A{\mathscr{A}}
+\renewcommand\ae{{a.\@e.\@}}
+\DeclareMathOperator\arccot{arccot}
+\DeclareMathOperator\Arcosh{Arcosh}
+\DeclareMathOperator\Arcoth{Arcoth}
+\DeclareMathOperator\Arg{Arg}
+\DeclareMathOperator\Arsinh{Arsinh}
+\DeclareMathOperator\Artanh{Artanh}
+\newcommand\at{\,\rule[-.9ex]{.25pt}{2.5ex}\,\rule[-.8ex]{0pt}{1ex}}
+\DeclareMathOperator\Aut{Aut}
+\newcommand\B{\mathrm{B}}
+\renewcommand\bar[1]{\overline{#1}}
+\newcommand\bb\mathbb
+\renewcommand\bf[1]{\expandafter\textbf{\boldmath{#1}}}
+\newcommand\bigat{\,\rule[-1.8ex]{.5pt}{4ex}\,\rule[-1.6ex]{0pt}{1ex}}
+\DeclareMathOperator\Bild{Bild}
+\newcommand\Bo{\mathcal{B}}
+\newcommand\C[1][]{\ifthenelse{\equal{#1}{}}{\mathbb{C}}{\mathrm{C}^{#1}}}
+\let\cal\mathcal
+\newcommand\cd{\boldsymbol{\cdot}}
+\DeclarePairedDelimiter\ceil\lceil\rceil
+\DeclareMathOperator\Char{char}
+\newcommand\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {$#1$};}}
+\DeclareMathOperator\cis{cis}
+\newcommand*{\coleq}{\mathrel{\vcenter{\baselineskip0.5ex\lineskiplimit0pt\hbox{\normalsize.}\hbox{\normalsize.}}}=}
+\newcommand*{\scoleq}{\mathrel{\vcenter{\baselineskip0.5ex\lineskiplimit0pt\hbox{\scriptsize.}\hbox{\scriptsize.}}}=}
+\renewcommand\comment[1]{{}}
+\newcommand\const{\text{ const. }}
+\newcommand\Cp{\mathbb{C}}
+\newcommand\cpt{\mathrm{cpt}}
+\newcommand\D{\mathrm{D}}
+\renewcommand\d{\mathrm{d}}
+\renewcommand\dh{d.\@h.\@}
+\newcommand\diam{\mathrm{diam}}
+\newcommand\diff{\mathrm{d}}
+\newcommand\dij{\delta_{i,j}}
+\newcommand\dist{\mathrm{dist}}
+\renewcommand\div{\mathrm{div}}
+\newcommand\dL{\,\d\mathscr{L}}
+\newcommand\dmu{\,\d\mu}
+\newcommand\dotp{\boldsymbol\cdot}
+\newcommand\draftnote{\textbf{Note: this is an early draft. It's known to be incomplet and incorrekt, and it has lots of b\kern-1.2pta\kern1ptd\hspace{1.5em}for\kern-3ptmat\kern0.6ptti\raise0.15ex\hbox{n}g.}}
+\newcommand\ds{\displaystyle}
+\newcommand\dx{{\,\d x}}
+\newcommand\dt{{\,\d t}}
+\newcommand\dy{{\,\d y}}
+\newcommand\dz{{\,\d z}}
+\newcommand\e{\mathrm{e}}
+\newcommand\eii{\mathord{\stackrel{\raisebox{-0.1ex}{$\scriptscriptstyle\circ$}}{\mbox{\footnotesize\i}\!\rule{1.8pt}{0pt}\!\mbox{\footnotesize\i}}}}
+\DeclareMathOperator\End{End}
+\let\temp\epsilon
+\let\epsilon\varepsilon
+\let\varepsilon\temp
+\newcommand*{\eqcol}{=\mathrel{\vcenter{\baselineskip0.5ex\lineskiplimit0pt\hbox{\normalsize.}\hbox{\normalsize.}}}}
+\newcommand\eqq	{\mathop{=\joinrel=}}
+\newcommand\eqqq	{\mathop{=\joinrel=\joinrel=}}
+\newcommand\eqqqq	{\mathop{=\joinrel=\joinrel=\joinrel=}}
+\newcommand\eqqqqq{\mathop{=\joinrel=\joinrel=\joinrel=\joinrel=}}
+\newcommand\essinf[1]{\mathrm{ess}\mathchoice{\inf_{\hspace{-3ex}#1}}
+  {\inf_#1}{\inf_#1}{\inf_#1}}
+\newcommand\esssup[1]{\mathrm{ess}\mathchoice{\sup_{\hspace{-4ex}#1}}
+  {\sup_#1}{\sup_#1}{\sup_#1}}
+\DeclareMathOperator\Fix{Fix}
+\DeclarePairedDelimiter\floor\lfloor\rfloor
+\newcommand\gdw{\ensuremath{\;\Longleftrightarrow\;}}
+\DeclareMathOperator\ggT{ggT}
+\DeclareMathOperator\GL{GL}
+\DeclareMathOperator\grad{grad}
+\renewcommand\H{\mathcal H}
+\renewcommand\hat[1]{\widehat{#1}}
+\newcommand\HC{\mathrm{H}}
+\newcommand\Hk{\mathcal{H}^k}
+\newcommand\Hs{\mathcal{H}^s}
+\newcommand\hoch{\parbox{1mm}{\text{}\\}\!}
+\DeclareMathOperator\Hom{Hom}
+\DeclareMathOperator\id{id}
+\DeclareMathOperator\Id{Id}
+\newcommand\ii{\mathord{\stackrel{\raisebox{-0.1ex}{$\scriptscriptstyle\circ$}}{\mbox{\i}\!\rule{2.3pt}{0pt}\!\mbox{\i}}}}
+\DeclareMathOperator\im{im}
+\renewcommand\Im{\operatorname{\mathpzc{Im}}}
+\newcommand\imag{{\mathbf i}}
+\newcommand\impl{\ensuremath{\;\Longrightarrow\;}}
+\newcommand\inv{\ensuremath ^{-1}}
+\newcommand\iso{\stackrel\sim=}
+\newcommand\K{\mathbb{K}}
+\newcommand\ka{\textup{(}}
+\newcommand\KC{\mathrm{K}}
+\DeclareMathOperator\kgV{kgV}
+\newcommand\kz{\textup{)}}
+\renewcommand\L{\mathrm{L}}
+\newcommand\LN{\mathscr{L}^N}
+\renewcommand\l{\lambda}
+\newcommand\loc{\mathrm{loc}}
+\DeclareMathOperator\Log{Log}
+\newcommand\longto{\ensuremath{\longrightarrow}}
+\newcommand\soutmath[1]{\text{\sout{$#1$}}}
+\newcommand\mi{\mathrm{i}}
+\newcommand\minusset{\setminus\set}
+\newcommand\mm[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand\msm[1]{\begin{psmallmatrix}#1\end{psmallmatrix}}
+\newcommand\muessinf[1]{\mu\text{-}\essinf#1}
+\newcommand\muesssup[1]{\mu\text{-}\esssup#1}
+\newcommand\N{\mathbb{N}}
+\newcommand\nin{\not\in}
+\DeclarePairedDelimiter\norm{\vert\vert}{\vert\vert}
+\newcommand\normal{\ensuremath \vartriangleleft}
+\newcommand\rnormal{\ensuremath \vartriangleright}
+\newcommand\normaleq{\trianglelefteq}
+\newcommand\rnormaleq{\trianglerighteq}
+\newcommand\normalneq{\mathrel{\ooalign{\raisebox{-0.5ex}{\reflectbox{\rotatebox{90}		{$\nshortmid$}}}\cr$\triangleright$\cr}\mkern-3mu}}
+\newcommand\rnormalneq{\mathrel{\reflectbox{$\normalneq$}}}
+\renewcommand\O{{\mathcal O}}
+\newcommand\obint{\mathchoice{\bigg.^\ast\!\!\!}{\big.^\ast\!}
+  {{\ts\stackrel{{}^\ast}{}}\!}{\stackrel{{}^\ast}{}}\!\!\int}
+\DeclareMathOperator\ord{ord}
+\newcommand\oversetclap[2]{\overset{\mathclap{#1}}{#2}}
+\newcommand\oversettext[2]{\overset{\text{#1}}{#2}}
+\newcommand\overunderset[3]{\overset{#1}{\underset{#2}{#3}}}
+\newcommand\p{\varphi}
+\renewcommand\P{\mathcal{P}}
+\let\temp\phi
+\let\phi\varphi
+\let\varphi\temp
+\newcommand\pM{\partial M}
+\newcommand\pN{\partial N}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\quer{\overline}
+\DeclareMathOperator\Quot{Quot}
+\newcommand\qq{\qquad}
+\newcommand\R{\mathbb{R}}
+\DeclareMathOperator\Rang{Rang}
+\newcommand\rank{\mathrm{rank}}
+\renewcommand\Re{\operatorname{\mathpzc{Re}}}
+\newcommand\restr{\,\rule[-.7ex]{.5pt}{2ex}\,\rule[-.6ex]{0pt}{1ex}}
+\DeclareMathOperator\Rot{Rot}
+\DeclareMathOperator\rot{rot}
+\renewcommand\S{\mathrm{S}}
+\newcommand\scr\mathscr
+\newcommand\sd{\;\vert\;}
+\newcommand\set[1]{\left\{\,#1\,\right\}}
+\newcommand\sgn{\mathrm{sgn}}
+\DeclareMathOperator\spt{spt}
+\DeclareMathOperator\Spur{Spur}
+\DeclareMathOperator\supp{supp}
+\newcommand\svdots{\vphantom{\int\limits^x}\smash{\vdots}}
+\newcommand\trace{\mathrm{trace}}
+\newcommand\T{\mathrm{T}}
+\newcommand\tafel[2]{\begin{center}\textcolor{gray}{\href{\tafelBildURL}{\textit{#2}}}\nopagebreak\\ \ifthenelse{\equal{\bilderAnzeigen}{J}}{\includegraphics[width=#1]{#2.jpg}}{} \end{center}}
+\DeclareMathOperator{\Tan}{Tan}
+\newcommand\tor{\ensuremath _{\text{tor}}}
+\newcommand\TR{\mathrm{R}}
+\newcommand\gt[1]{\underset{#1}\longrightarrow}
+\newcommand\gtl[1]{\xrightarrow[#1]{}}
+\newcommand\ts{\textstyle}
+\newcommand\ul\underline
+\newcommand\Umf{Untermannigfaltigkeit }
+\newcommand\Umfen{Untermannigfaltigkeiten }
+\newcommand\undersetclap[2]{\underset{\mathclap{#1}}{#2}}
+\newcommand\undersettext[2]{\underset{\text{#1}}{#2}}
+\newcommand\untint{\mathchoice{\bigg._\ast}{\big._\ast}
+  {\big._{\stackrel\ast{}}\!}{\big._{\stackrel\ast{}}\!}\!\int}
+\newcommand\vp{\varphi}
+\newcommand\vr{\varrho}
+\newcommand\vt{\vartheta}
+\DeclareMathOperator\W{W}
+\newcommand\X{\mathcal{X}}
+\newcommand\Y{\mathcal{Y}}
+\newcommand\Z{\mathbb{Z}}
+
+
+\makeatletter
+\newcommand{\NewTheoremType}[2]{\expandafter 
+\newtheorem{#1}[theoremCounter]{#2}
+\newtheorem*{#1*}{#2}
+\newenvironment{#1items}[2][]
+    {\begin{#1}[##1]\text{}##2\begin{enumerate}[{\rm(1)}]\@beginparpenalty\@M}
+    {\end{enumerate}\end{#1}}
+\newenvironment{#1items*}[2][]
+    {\begin{#1*}[##1]\text{}##2\begin{enumerate}[{\rm(1)}]\@beginparpenalty\@M}
+    {\end{enumerate}\end{#1*}}
+}
+\makeatother
+
+\newtheorem{theoremCounter}{This is just a counter, which should not appear in the document}[section]
+
+%Syntax: \NewTheoremType{Environment Name}{Header of Environment}
+\NewTheoremType{axiom}{Axiom}
+\NewTheoremType{defi}{Definition}
+\NewTheoremType{defis}{Definitionen}
+\NewTheoremType{defi+bem}{Definition und Bemerkung}
+\NewTheoremType{defis+bems}{Definitionen und Bemerkungenen}
+\NewTheoremType{defi+satz}{Definition und Satz}
+\NewTheoremType{einlemma}{Eindeutigkeitslemma}
+\NewTheoremType{einschubdefi}{Eingeschobene Definition}
+\NewTheoremType{hsatz}{Hauptsatz}
+\NewTheoremType{konstr}{Konstruktion}
+\NewTheoremType{kor}{Korollar}
+\NewTheoremType{kors}{Korollare}
+\NewTheoremType{kor+defi}{Korollar und Definition}
+\NewTheoremType{lemma}{Lemma}
+\NewTheoremType{lemma+defi}{Lemma und Definition}
+\NewTheoremType{nota}{Notation}
+\NewTheoremType{notas}{Notationen}
+\NewTheoremType{prinz}{Prinzip}
+\NewTheoremType{prop}{Proposition}
+\NewTheoremType{satz}{Satz}
+\NewTheoremType{satz+defi}{Satz und Definition}
+\NewTheoremType{termi}{Terminologie}
+\NewTheoremType{theorem}{Theorem}
+\NewTheoremType{verf}{Verfahren}
+\NewTheoremType{zsatz}{Zusatz}
+
+\theoremstyle{definition}
+\NewTheoremType{anw}{Anwendung}
+\NewTheoremType{anws}{Anwendungen}
+\NewTheoremType{anwbsps}{Anwendungsbeispiele}
+\NewTheoremType{ausbl}{Ausblick}
+\NewTheoremType{bem}{Bemerkung}
+\NewTheoremType{bems}{Bemerkungen}
+\NewTheoremType{bemerls}{Bemerkungen und Erläuterungen}
+\NewTheoremType{bem+bsp}{Bemerkung und Beispiel}
+\NewTheoremType{bem+bsps}{Bemerkung und Beispiele}
+\NewTheoremType{bems+bsps}{Bemerkungen und Beispiele}
+\NewTheoremType{bems+defis}{Bemerkungen und Definitionen}
+\NewTheoremType{bez}{Bezeichnung}
+\NewTheoremType{bezs}{Bezeichnungen}
+\NewTheoremType{bsp}{Beispiel}
+\NewTheoremType{bsps}{Beispiele}
+\NewTheoremType{bsp+defi}{Beispiel und Definition}
+\NewTheoremType{berechnung}{Berechnung}
+\NewTheoremType{disk}{Diskussion}
+\NewTheoremType{eigs}{Eigenschaften}
+\NewTheoremType{erinnerung}{Erinnerung}
+\NewTheoremType{einschub}{Einschub}
+\NewTheoremType{folgs}{Folgerungen}
+\NewTheoremType{frage}{Frage}
+\NewTheoremType{gegenbsp}{Gegenbeispiel}
+\NewTheoremType{geigs}{Grundeigenschaften}
+\NewTheoremType{gops}{Grundoperationen}
+\NewTheoremType{heigs}{Haupteigenschaften}
+\NewTheoremType{motivation}{Motivation}
+\NewTheoremType{rahmen}{Formaler Rahmen}
+\NewTheoremType{situ}{Situation}
+\NewTheoremType{spezfs}{Spezialfälle}
+\NewTheoremType{weiterebems}{Weitere Bemerkungen}
+\NewTheoremType{weiterebsps}{Weitere Beispiele}
+\NewTheoremType{wops}{Weitere Operationen}
+\NewTheoremType{ziel}{Ziel}
+\NewTheoremType{ziels}{Ziele}
+
+\newenvironment{ableitung}[1]
+	{\begin{center}\begin{tabular}{c}#1\\\hline\begin{tabular}{cccc}}
+    {\end{tabular}\end{tabular}\end{center}}
+\newcommand{\hilf}{$\mathllap\ast$}
+
+\newenvironment{beweis}{\begin{proof}[Beweis]}{\end{proof}}
+\newenvironment{Beweis}{\begin{proof}[\bf{Beweis}]}{\end{proof}}
+\newenvironment{beweisskizze}{\begin{proof}[Beweisskizze]}{\end{proof}}
+\makeatletter
+\newenvironment{beweisitems}[1]
+    {\begin{proof}[Beweis]\text{}#1\begin{enumerate}[{\rm(1)}]\@beginparpenalty\@M}
+    {\end{enumerate}\end{proof}}
+\newenvironment{proofitems}[2][]
+    {\begin{proof}[#1]\text{}#2\begin{enumerate}[{\rm(1)}]\@beginparpenalty\@M}
+    {\end{enumerate}\end{proof}}
+\makeatother
+
+\newcommand\NewEnumerate[1]{\newenvironment{#1}{\enumerate[#1]}\endenumerate}
+\NewEnumerate{(a)}
+\NewEnumerate{(A)}
+\NewEnumerate{(1)}
+\NewEnumerate{(I)}
+\NewEnumerate{(i)}
+\NewEnumerate{1. {Fall}}
+\NewEnumerate{{Fall} 1}
+\NewEnumerate{{Beh.} 1.}
+
+
+\newcommand\itemSub{\item[\glqq$\subset$\grqq]}
+\newcommand\itemSup{\item[\glqq$\supset$\grqq]}
+\newcommand\itemLeft{\item[\glqq$\Leftarrow$\grqq]}
+\newcommand\itemRight{\item[\glqq$\Rightarrow$\grqq]}
+\newcommand\emptyitem{\item[]} 
+
+
+
+\newcommand\myDisclaimer{\it{\textcolor{gray}{\ul{Disclaimer:} This template might have a very minor case of quite serious hubris. It is always cheerful about helpful additions and totally ignorant to the fact that it could not be properly improved, if it already were almighty.}}}
+
+\endinput
